@@ -48,7 +48,7 @@ class ContactMessageController extends Controller
     	);
 
     	Mail::send('emails.contact-message', $data, function($message) use($data){
-    		$message->from($data['email']);
+    		$message->from('carlos.vargas@tukondominio.cl');
     		$message->replyto($data['email']);
     		$message->to('contacto@tukondominio.cl');
     		$message->subject($data['name']);
