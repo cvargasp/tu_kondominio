@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Mail;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Session;
 
 class ContactMessageController extends Controller
 {
@@ -53,6 +54,8 @@ class ContactMessageController extends Controller
     		$message->to('contacto@tukondominio.cl');
     		$message->subject($data['name']);
     	});
+
+        Session::flash('success', 'Tu mensaje ha sido enviado exitosamente!');
 
     	return redirect()->back();
     }

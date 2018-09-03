@@ -22,7 +22,12 @@
 
 <section>
 	<div class="container next-section">
-		<div class="row margin-contact-info">
+		@if (session('success'))
+		    <div class="alert alert-success mb-40">
+		        {{ session('success') }}
+		    </div>
+		@endif
+		<div class="row margin-contact-info justify-content-between">
 			<div class="col-md-7">
 				<form method="post" action="{{route('contact.store')}}">
 					{{ csrf_field() }}
